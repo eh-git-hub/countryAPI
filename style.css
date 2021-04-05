@@ -1,7 +1,43 @@
-p {
-    color: orange;
+.pageHeader {
+    text-align: center;
 }
 
-h1 {
-    text-align: center;
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 30px;
+}
+    
+
+.card-image{
+    width: 100%;
+    height: auto;
+}
+
+.card-name{
+    text-transform: capitalize;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.card-capital{
+    font-weight: lighter;
+    color: #666;
+    font-weight: normal; 
+    margin-bottom: 0; 
+}
+
+.card-region{
+    font-weight: lighter;
+    color: #666;
+    font-weight: normal; 
+    margin-bottom: 0; 
+}
+
+.card-language{
+    font-weight: lighter;
+    color: #666;
+    font-weight: normal; 
+    margin-bottom: 0; 
 }

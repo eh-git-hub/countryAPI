@@ -23,12 +23,12 @@ const countryList = document.getElementById("countryList");
         
            //Add HTML that includes the JSON data
             countryList.innerHTML = 
-           `<ul>
-                <img src = ${countryArr.flag}>
-                <h1>Name ${countryArr.name}</h1>
-                <h2>Capital ${countryArr.capital} </h2>
-                <p>Region ${countryArr.region}</p>
-                <p>Language ${countryArr.languages}</p>
+           `<ul class="card">
+                <img class = "card-image" src=${countryArr.flag}>
+                <h1 class = "card-name"> Name: ${countryArr.name}</h1>
+                <h2 class = "card-capital"> Capital: ${countryArr.capital}</h2>
+                <h2 class = "card-region"> Region: ${countryArr.region}</h2>
+                <h2 class = "card-language"> Language: ${countryArr.languages}</h2>
             <ul>
            `
        });
