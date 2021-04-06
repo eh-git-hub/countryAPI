@@ -39,7 +39,7 @@ fetch("https://restcountries.eu/rest/v2/name/United States of America").then( fu
 
 
     //TODO: need to generate a random number that corresponds to the index of the API array and displays it 
-    let countryArray = ["United States of America", "Afghanistan", "Åland Islands", "Albania", "Algeria", "American Samoa"];
+    let countryArray = ["United States of America", "Afghanistan", "Åland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola"];
     
     function randomCountryGen(){
         let country = document.getElementById("randomCountry");
