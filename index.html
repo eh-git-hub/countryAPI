@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +14,14 @@
     <div id="countryList">
         <!-- TODO: dynamically add html about weather using data from API -->
     </div>
+    <button onclick="randomCountryGen()" class="countryButton" type="button">Random Country Generator</button>
+    <div id="randomCountry"></div>
+    <footer class="flex-container">
+        <div>Edgar Hernandez</div>
+        <div>
+            <a href="mailto:edgarh@example.com">edgarh@example.com</a>
+        </div>
+    </footer>
     <script src="app.js"></script>
 </body>
-
 </html>
