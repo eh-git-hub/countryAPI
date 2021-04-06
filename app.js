@@ -4,7 +4,6 @@ const countryList = document.getElementById("countryList");
 // let msg = "Hello, World!"
 // console.log(msg);
 
-//TODO: need to add an onclick method that activates the function random when clicked
 //TODO: connect API and display info. 
 // for (let i = 0; i <= countryArr.length; i++){
     
@@ -78,3 +77,4 @@ const countryList = document.getElementById("countryList");
         return randomCountry;
     }
     
+    //TODO: need to add user input(guess) of what country it is and check if its correct based on picture
