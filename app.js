@@ -1,6 +1,6 @@
 const countryList = document.getElementById("countryList");
-let country = document.getElementById("randomCountry");
-let countryNamesArr = [];
+const country = document.getElementById("randomCountry");
+const countryNamesArr = [];
 
 //TODO: ITERATE THROUGH "ALL" API, GET COUNTRY NAME, AND PUSH TO NEW ARRAY
 fetch(`https://restcountries.eu/rest/v2/all`).then( function(response) {
@@ -14,7 +14,7 @@ fetch(`https://restcountries.eu/rest/v2/all`).then( function(response) {
                 let countryNames = eachCountry.name;
                 countryNamesArr.push(countryNames);
             };
-            //console.log(countryNamesArr);
+            // console.log(countryNamesArr);
         });
     });
 
@@ -40,14 +40,14 @@ function randomCountryGen(){
         // let randomCountry = countryArray[Math.floor(Math.random()*countryArray.length)];
 
         //USES "countryNamesArr" GENERATED FROM API
-        let randomCountry = countryNamesArr[Math.floor(Math.random()*countryNamesArr.length)];
+        randomCountry = countryNamesArr[Math.floor(Math.random()*countryNamesArr.length)];
         
         fetch(`https://restcountries.eu/rest/v2/name/${randomCountry}?fullText=true`).then( function(response) {
         // Access the JSON in the response
         response.json().then( function(json) {
             //console.log(json);
 
-            const countryArr = [];
+             countryArr = [];
                 countryArr['name'] = json[0].name;
                 countryArr['capital'] = json[0].capital;
                 countryArr['region'] = json[0].region;
@@ -64,15 +64,50 @@ function randomCountryGen(){
                 <li class = "card-capital"> Capital: ${countryArr.capital}</li>
                 <li class = "card-region"> Region: ${countryArr.region}</li>
                 <li class = "card-language"> Language: ${countryArr.languages}</li>
-            <ul>`
+            <ul>
+            <div class=learnMore>
+                <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
+           </div>`
         });
     });
 
-        country.innerHTML = 
-            `<p class="randomCountry">${randomCountry}</p>`
+    //console.log(typeof randomCountry);
+
+        // country.innerHTML = 
+        //     `<p class="randomCountry">${randomCountry}</p>`
         
-        return randomCountry;
+        // return randomCountry;
+
     }
-    
+
+    //problem is with countryGuess
+    function countryGuessFunction() {
+            let text;
+            
+            // Get the value of the input field with id="numb"
+            let countryGuessInput = document.getElementById("countryGuessInput").value;
+          
+            // If x is Not a Number or less than one or greater than 10
+            if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
+              text = `<p> Correct! </p>`;
+            //   countryList.innerHTML = 
+            //   `<img class = "card-image" src=${countryArr.flag}>
+            //     <div class=learnMore>
+            //         <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
+            //     </div>`
+                //add clues if guessed wrong
+            } else {
+                text = `<p> Try Again! </p>`;
+                alert(`Hint:
+                        Capital is: ${countryArr.capital}
+                        Region is: ${countryArr.region}`)
+            }
+
+
+            document.getElementById("correct-incorrect").innerHTML = text;
+          }
+
+    //console.log(typeof countryGuess);
+
     //TODO: need to add user input(guess) of what country it is and check if its correct based on picture
     //if name of input in html is equal to randomCountry answer is correct

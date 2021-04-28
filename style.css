@@ -1,36 +1,43 @@
 body {
-    background: url(https://images.unsplash.com/photo-1529473322929-b204ee21f845?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80) no-repeat center center fixed;
-    background-size: cover;
+    /* background: url(https://images.unsplash.com/photo-1529473322929-b204ee21f845?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80) no-repeat center center fixed; */
+    background: linear-gradient(to bottom right, #BC3131, #B5324D, #AC3370, #A5338C, #9E34A9);
+    /* background-size: cover; */
     text-align: center;
     font-family: 'Oxygen', sans-serif;
+    color: rgba(255,255,255,0.8);
     padding: 20px;
-    
 }
 
 .pageHeader {
-    color: rgba(255,255,255,0.8);
     font-weight: lighter;
     text-align: center;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
 }
 
 
 .card{
     margin: auto;
-    color: rgba(255,255,255,0.8);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     padding: 30px;
     list-style: none;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.2);
+    /* border: 1px solid rgba(255,255,255,0.1); */
     backdrop-filter: blur(30px);
     font-weight: lighter;
     font-size: 25px;
     font-weight: lighter;
-    height: 20rem;
+    height: auto;
     width: 50rem;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
 }
-    
+
+.learnMore{
+    font-size: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .card-image{
     width: 35%;
     height: auto;
@@ -40,23 +47,66 @@ body {
 .randomCountry {
     font-weight: lighter;
     font-size: 25px;
-    font-weight: lighter; 
-    color: rgba(255,255,255,0.8);
+    font-weight: lighter;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
 }
 
-.countryButton {
+#countryGuessInput{
     margin-top: 20px;
     padding: 24px 32px;
-    text-decoration: none;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
+}
+
+.submit{
+    padding: 24px 32px;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
+}
+
+.clear{
+    padding: 24px 32px;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
+}
+
+#correct-incorrect {
+    font-weight: lighter;
+    font-size: 25px;
+    font-weight: lighter;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
+}
+
+.randomCountryButton {
+    margin-top: 10px;
+    padding: 24px 32px;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.2);
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(30px);
     color: rgba(255,255,255,0.8);
     font-size: 14px;
     letter-spacing: 2px;
     cursor: pointer;
-    text-transform: uppercase;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
 }
 
 .flex-container{
@@ -64,4 +114,5 @@ body {
     font-weight: bold;
     position: absolute;
     bottom: 0;
+    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
 }

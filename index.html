@@ -6,16 +6,24 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>countryAPI</title>
+    <title>countryAPITest</title>
 </head>
 
 <body>
-    <h1 class=pageHeader>List of Countries</h1>
-    <div id="countryList">
-        <!-- TODO: dynamically add html about weather using data from API -->
-    </div>
+    <h1 class=pageHeader>Guess The Flag!</h1>
+    <div id="countryList"></div>
+
+    <form>
+        <input type="text" id="countryGuessInput" onfocus="this.value=''" value="ENTER YOUR GUESS:">
+        <button type="button" class="submit" onclick="countryGuessFunction()">SUBMIT</button>
+        <button type="button" class="clear"onclick="document.getElementById('countryGuessInput').value = ''">CLEAR INPUT FIELD</button>
+    </form>
+    
+    <div id="correct-incorrect"></div>
+
+    <div id="countryGuess"></div>
     <!-- TODO: need to add an onclick method that activates the function random when clicked -->
-    <button onclick="randomCountryGen()" class="countryButton" type="button">Random Country Generator</button>
+    <button onclick="randomCountryGen()" class="randomCountryButton" type="button">RANDOM COUNTRY</button>
     <div id="randomCountry"></div>
     <footer class="flex-container">
         <p>Edgar Hernandez</p>
