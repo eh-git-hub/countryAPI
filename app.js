@@ -1,5 +1,6 @@
 const countryList = document.getElementById("countryList");
 const country = document.getElementById("randomCountry");
+let scoreHTML = document.getElementById("score");
 const countryNamesArr = [];
 
 //TODO: ITERATE THROUGH "ALL" API, GET COUNTRY NAME, AND PUSH TO NEW ARRAY
@@ -35,13 +36,11 @@ fetch(`https://restcountries.eu/rest/v2/all`).then( function(response) {
 // "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela (Bolivarian Republic of)", "Viet Nam", "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"];
 
 function randomCountryGen(){
-        //TODO: NEED TO GENERATE A RANDOM NUMBER THAT CORRESPONDS TO THE INDEX OF THE API ARRAY
-        //USES HARD CODED "countryArray"
-        // let randomCountry = countryArray[Math.floor(Math.random()*countryArray.length)];
 
         //USES "countryNamesArr" GENERATED FROM API
         randomCountry = countryNamesArr[Math.floor(Math.random()*countryNamesArr.length)];
         
+
         fetch(`https://restcountries.eu/rest/v2/name/${randomCountry}?fullText=true`).then( function(response) {
         // Access the JSON in the response
         response.json().then( function(json) {
@@ -69,45 +68,83 @@ function randomCountryGen(){
                 <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
            </div>`
         });
+        document.getElementById('countryGuessInput').value = '';
+        document.getElementById("countryGuessInput").focus();
     });
 
-    //console.log(typeof randomCountry);
+    countdown(1);
+}
 
-        // country.innerHTML = 
-        //     `<p class="randomCountry">${randomCountry}</p>`
-        
-        // return randomCountry;
-
-    }
-
-    //problem is with countryGuess
     function countryGuessFunction() {
             let text;
+            countryGuessInput = document.getElementById("countryGuessInput").value;
             
-            // Get the value of the input field with id="numb"
-            let countryGuessInput = document.getElementById("countryGuessInput").value;
-          
-            // If x is Not a Number or less than one or greater than 10
             if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
               text = `<p> Correct! </p>`;
-            //   countryList.innerHTML = 
-            //   `<img class = "card-image" src=${countryArr.flag}>
-            //     <div class=learnMore>
-            //         <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
-            //     </div>`
-                //add clues if guessed wrong
+
+              //setTimeout not waiting 3 seconds to change flag
+              //setTimeout(randomCountryGen(), 3000);
+              //causing error for scoring when moving onto next flag
+              
+              document.getElementById("countryGuessInput").focus();
+              disappearElement();
             } else {
                 text = `<p> Try Again! </p>`;
-                alert(`Hint:
-                        Capital is: ${countryArr.capital}
-                        Region is: ${countryArr.region}`)
+                disappearElement();
+                document.getElementById("countryGuessInput").focus();
             }
-
 
             document.getElementById("correct-incorrect").innerHTML = text;
           }
 
-    //console.log(typeof countryGuess);
+          //disappear element
+          function disappearElement(){
+              setTimeout(function(){
+                  document.getElementById("correct-incorrect").style.display = 'none';
+                }, 2000);
+            }
 
-    //TODO: need to add user input(guess) of what country it is and check if its correct based on picture
-    //if name of input in html is equal to randomCountry answer is correct
+           //Score 
+           let score = 0; 
+            
+            function scoreKeeper(){
+                if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()){
+                    score += 10;
+                    document.getElementById("score").innerHTML = "score: " + score;
+                    // console.log(`countryGuessInput right: ${countryGuessInput.toLowerCase()}`)
+                    // console.log(`randomCountry right: ${randomCountry.toLowerCase()}`)
+                    // console.log(score);
+                } else if (countryGuessInput.toLowerCase() !== randomCountry.toLowerCase()) {
+                    score -= 1;
+                    document.getElementById("score").innerHTML = score;
+                    // console.log(`countryGuessInput wrong: ${countryGuessInput.toLowerCase()}`)
+                    // console.log(`randomCountry wrong: ${randomCountry.toLowerCase()}`)
+                }
+            }
+
+            
+            //Countdown Timer Function
+            function countdown(minutes) {
+                let seconds = 60;
+                let mins = minutes
+              
+                function tick() {
+                    let counter = document.getElementById("counter");
+                    let currentMinutes = mins-1
+                    seconds--;
+                    //Ternary Operator(?): Assigns a value to a variable based on a condition.
+                    counter.innerHTML = currentMinutes.toString() + ":" + (seconds < 10 ? "0" : "") + seconds.toString() + "s";
+                    if(seconds > 0) {
+                        setTimeout(tick, 1000);
+                    } else if (mins > 1) {
+                            countdown(mins-1);
+                    } else if (seconds <= 0) {
+                      counter.innerHTML = "TIME'S UP!"
+                      //document.getElementById("randomCountryButton").disabled = true;
+                      //document.getElementById("randomCountryButton").style.cursor = "none";
+                    }
+                }
+                tick();
+              }
+              
+            

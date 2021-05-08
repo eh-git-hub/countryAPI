@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -11,19 +12,22 @@
 
 <body>
     <h1 class=pageHeader>Guess The Flag!</h1>
+    <div id="score">score: 0</div>
+    <div id=counter></div>
     <div id="countryList"></div>
 
     <form>
-        <input type="text" id="countryGuessInput" onfocus="this.value=''" value="ENTER YOUR GUESS:">
-        <button type="button" class="submit" onclick="countryGuessFunction()">SUBMIT</button>
-        <button type="button" class="clear"onclick="document.getElementById('countryGuessInput').value = ''">CLEAR INPUT FIELD</button>
+        <input type="text" id="countryGuessInput" class="flex" onfocus="this.value=''" value="ENTER YOUR GUESS:">
+        <button type="button" id="submitButton" class="flex" onclick="countryGuessFunction(), scoreKeeper()">SUBMIT</button>
+        <!-- <button type="button" class="flex" onclick="document.getElementById('countryGuessInput').value = ''">CLEAR INPUT FIELD</button> -->
     </form>
     
     <div id="correct-incorrect"></div>
 
     <div id="countryGuess"></div>
     <!-- TODO: need to add an onclick method that activates the function random when clicked -->
-    <button onclick="randomCountryGen()" class="randomCountryButton" type="button">RANDOM COUNTRY</button>
+    <button id="randomCountryButton" onclick="randomCountryGen()" class="flex" type="button">RANDOM COUNTRY</button>
+    <button id="reloadButton" class="flex" onclick="location.reload()">RESTART</button>
     <div id="randomCountry"></div>
     <footer class="flex-container">
         <p>Edgar Hernandez</p>
