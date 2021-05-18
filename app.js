@@ -72,7 +72,7 @@ function randomCountryGen(){
         document.getElementById("countryGuessInput").focus();
     });
 
-    countdown(1);
+    //countdown(1);
 }
 
     function countryGuessFunction() {
@@ -81,20 +81,25 @@ function randomCountryGen(){
             
             if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
               text = `<p> Correct! </p>`;
-
-              //setTimeout not waiting 3 seconds to change flag
+              document.getElementById("correct-incorrect").style.display = 'block';
+              disappearElement();
+            //   randomCountryGen();
+              
+            //setTimeout not waiting 3 seconds to change flag
               //setTimeout(randomCountryGen(), 3000);
               //causing error for scoring when moving onto next flag
               
               document.getElementById("countryGuessInput").focus();
-              disappearElement();
+
+
             } else {
                 text = `<p> Try Again! </p>`;
+                document.getElementById("correct-incorrect").style.display = 'block';
                 disappearElement();
                 document.getElementById("countryGuessInput").focus();
             }
-
             document.getElementById("correct-incorrect").innerHTML = text;
+            //randomCountryGen();
           }
 
           //disappear element
@@ -116,7 +121,7 @@ function randomCountryGen(){
                     // console.log(score);
                 } else if (countryGuessInput.toLowerCase() !== randomCountry.toLowerCase()) {
                     score -= 1;
-                    document.getElementById("score").innerHTML = score;
+                    document.getElementById("score").innerHTML = "score: " + score;
                     // console.log(`countryGuessInput wrong: ${countryGuessInput.toLowerCase()}`)
                     // console.log(`randomCountry wrong: ${randomCountry.toLowerCase()}`)
                 }
@@ -140,8 +145,10 @@ function randomCountryGen(){
                             countdown(mins-1);
                     } else if (seconds <= 0) {
                       counter.innerHTML = "TIME'S UP!"
-                      //document.getElementById("randomCountryButton").disabled = true;
-                      //document.getElementById("randomCountryButton").style.cursor = "none";
+                      document.getElementById("randomCountryButton").disabled = true;
+                      document.getElementById("randomCountryButton").style.cursor = "none";
+                      document.getElementById("randomCountryButton").style.color = "#666666";
+                      document.getElementById("randomCountryButton").style.backgroundColor = "#cccccc";
                     }
                 }
                 tick();

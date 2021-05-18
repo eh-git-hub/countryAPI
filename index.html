@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>countryAPITest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>Guess The Flag Responsive</title>
 </head>
 
-<body>
+<body onload="countdown(1)">
     <h1 class=pageHeader>Guess The Flag!</h1>
-    <div id="score">score: 0</div>
-    <div id=counter></div>
+    
+    <div class=flex-score-counter>
+        <div id="score">score: 0</div>
+        <div id=counter>1:00m</div>
+    </div>
+
     <div id="countryList"></div>
 
-    <form>
-        <input type="text" id="countryGuessInput" class="flex" onfocus="this.value=''" value="ENTER YOUR GUESS:">
-        <button type="button" id="submitButton" class="flex" onclick="countryGuessFunction(), scoreKeeper()">SUBMIT</button>
-        <!-- <button type="button" class="flex" onclick="document.getElementById('countryGuessInput').value = ''">CLEAR INPUT FIELD</button> -->
-    </form>
+    <div class="flex">
+        <input type="text" id="countryGuessInput" onfocus="this.value=''" value="ENTER YOUR GUESS:">
+        <button type="button" id="submitButton" onclick="countryGuessFunction(), scoreKeeper()">SUBMIT</button>
+        <button id="randomCountryButton" onclick="randomCountryGen()" type="button">RANDOM COUNTRY</button>
+        <button id="restartButton" onclick="location.reload()">RESTART</button>
+    </div>
     
     <div id="correct-incorrect"></div>
 
     <div id="countryGuess"></div>
     <!-- TODO: need to add an onclick method that activates the function random when clicked -->
-    <button id="randomCountryButton" onclick="randomCountryGen()" class="flex" type="button">RANDOM COUNTRY</button>
-    <button id="reloadButton" class="flex" onclick="location.reload()">RESTART</button>
+
     <div id="randomCountry"></div>
     <footer class="flex-container">
         <p>Edgar Hernandez</p>
     </footer>
+
+    <div class="flex-container-social">
+        <a href="https://www.w3schools.com" target="_blank"><i id="linkedin" class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.w3schools.com" target="_blank"><i id="github" class="fab fa-github"></i></a>
+        <a href="https://www.w3schools.com" target="_blank"><i id="twitter" class="fab fa-twitter"></i></a>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
