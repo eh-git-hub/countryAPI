@@ -4,20 +4,20 @@ let scoreHTML = document.getElementById("score");
 const countryNamesArr = [];
 
 //TODO: ITERATE THROUGH "ALL" API, GET COUNTRY NAME, AND PUSH TO NEW ARRAY
-fetch(`https://restcountries.eu/rest/v2/all`).then( function(response) {
-        
-        //Access THE JSON IN THE RESPONSE
-        response.json().then( function(json) {
+fetch(`https://restcountries.eu/rest/v2/all`).then(function (response) {
 
-            //forEach Loop
-            json.forEach(myFunction);
-            function myFunction(eachCountry){
-                let countryNames = eachCountry.name;
-                countryNamesArr.push(countryNames);
-            };
-            // console.log(countryNamesArr);
-        });
+    //Access THE JSON IN THE RESPONSE
+    response.json().then(function (json) {
+
+        //forEach Loop
+        json.forEach(myFunction);
+        function myFunction(eachCountry) {
+            let countryNames = eachCountry.name;
+            countryNamesArr.push(countryNames);
+        };
+        // console.log(countryNamesArr);
     });
+});
 
 // const countryArray = ["Afghanistan", "Åland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh",
 // "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia (Plurinational State of)", "Bonaire, Sint Eustatius and Saba", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", 
@@ -35,29 +35,28 @@ fetch(`https://restcountries.eu/rest/v2/all`).then( function(response) {
 // "Tanzania", "United Republic of,Thailand", "Timor-Leste", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom of Great Britain and Northern Ireland", 
 // "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela (Bolivarian Republic of)", "Viet Nam", "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"];
 
-function randomCountryGen(){
+function randomCountryGen() {
 
-        //USES "countryNamesArr" GENERATED FROM API
-        randomCountry = countryNamesArr[Math.floor(Math.random()*countryNamesArr.length)];
-        
+    //USES "countryNamesArr" GENERATED FROM API
+    randomCountry = countryNamesArr[Math.floor(Math.random() * countryNamesArr.length)];
 
-        fetch(`https://restcountries.eu/rest/v2/name/${randomCountry}?fullText=true`).then( function(response) {
+
+    fetch(`https://restcountries.eu/rest/v2/name/${randomCountry}?fullText=true`).then(function (response) {
         // Access the JSON in the response
-        response.json().then( function(json) {
+        response.json().then(function (json) {
             //console.log(json);
 
-             countryArr = [];
-                countryArr['name'] = json[0].name;
-                countryArr['capital'] = json[0].capital;
-                countryArr['region'] = json[0].region;
-                countryArr['languages'] = json[0].languages[0].name;
-                countryArr['flag'] = json[0].flag;
-            
+            countryArr = [];
+            countryArr['name'] = json[0].name;
+            countryArr['capital'] = json[0].capital;
+            countryArr['region'] = json[0].region;
+            countryArr['languages'] = json[0].languages[0].name;
+            countryArr['flag'] = json[0].flag;
             //console.log(countryArr);
-            
+
             //TODO: ADD HTML WITH JSON DATA
-            countryList.innerHTML = 
-            `<ul class="card">
+            countryList.innerHTML =
+                `<ul class="card">
                 <img class = "card-image" src=${countryArr.flag}>
                 <li class = "card-name"> Name: ${countryArr.name}</li>
                 <li class = "card-capital"> Capital: ${countryArr.capital}</li>
@@ -71,87 +70,75 @@ function randomCountryGen(){
         document.getElementById('countryGuessInput').value = '';
         document.getElementById("countryGuessInput").focus();
     });
-
-    //countdown(1);
 }
 
-    function countryGuessFunction() {
-            let text;
-            countryGuessInput = document.getElementById("countryGuessInput").value;
-            
-            if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
-              text = `<p> Correct! </p>`;
-              document.getElementById("correct-incorrect").style.display = 'block';
-              disappearElement();
-            //   randomCountryGen();
-              
-            //setTimeout not waiting 3 seconds to change flag
-              //setTimeout(randomCountryGen(), 3000);
-              //causing error for scoring when moving onto next flag
-              
-              document.getElementById("countryGuessInput").focus();
+//try contain instead of equals
+//function to remove special characters from input and guess
+
+function countryGuessFunction() {
+    let text;
+    countryGuessInput = document.getElementById("countryGuessInput").value;
+
+    if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
+        text = `<p> Correct! </p>`;
+        document.getElementById("correct-incorrect").style.display = 'block';
+        disappearElement();
+        document.getElementById("countryGuessInput").focus();
+
+    } else {
+        text = `<p> Try Again! </p>`;
+        document.getElementById("correct-incorrect").style.display = 'block';
+        disappearElement();
+        document.getElementById("countryGuessInput").focus();
+    }
+    document.getElementById("correct-incorrect").innerHTML = text;
+}
+
+//disappear element
+function disappearElement() {
+    setTimeout(function () {
+        document.getElementById("correct-incorrect").style.display = 'none';
+    }, 1000);
+}
+
+//Score 
+let score = 0;
+
+function scoreKeeper() {
+    if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
+        score += 10;
+        document.getElementById("score").innerHTML = "score: " + score;
+        randomCountryGen();
+    } else if (countryGuessInput.toLowerCase() !== randomCountry.toLowerCase()) {
+        score -= 1;
+        document.getElementById("score").innerHTML = "score: " + score;
+    }
+}
 
 
-            } else {
-                text = `<p> Try Again! </p>`;
-                document.getElementById("correct-incorrect").style.display = 'block';
-                disappearElement();
-                document.getElementById("countryGuessInput").focus();
-            }
-            document.getElementById("correct-incorrect").innerHTML = text;
-            //randomCountryGen();
-          }
+//Countdown Timer Function
+function countdown(minutes) {
+    let seconds = 60;
+    let mins = minutes
 
-          //disappear element
-          function disappearElement(){
-              setTimeout(function(){
-                  document.getElementById("correct-incorrect").style.display = 'none';
-                }, 2000);
-            }
+    function tick() {
+        let counter = document.getElementById("counter");
+        let currentMinutes = mins - 1
+        seconds--;
+        //Ternary Operator(?): Assigns a value to a variable based on a condition.
+        counter.innerHTML = currentMinutes.toString() + ":" + (seconds < 10 ? "0" : "") + seconds.toString() + "s";
+        if (seconds > 0) {
+            setTimeout(tick, 1000);
+        } else if (mins > 1) {
+            countdown(mins - 1);
+        } else if (seconds <= 0) {
+            counter.innerHTML = "TIME'S UP!"
+            document.getElementById("randomCountryButton").disabled = true;
+            document.getElementById("randomCountryButton").style.cursor = "none";
+            document.getElementById("randomCountryButton").style.color = "#666666";
+            document.getElementById("randomCountryButton").style.backgroundColor = "#cccccc";
+        }
+    }
+    tick();
+}
 
-           //Score 
-           let score = 0; 
-            
-            function scoreKeeper(){
-                if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()){
-                    score += 10;
-                    document.getElementById("score").innerHTML = "score: " + score;
-                    // console.log(`countryGuessInput right: ${countryGuessInput.toLowerCase()}`)
-                    // console.log(`randomCountry right: ${randomCountry.toLowerCase()}`)
-                    // console.log(score);
-                } else if (countryGuessInput.toLowerCase() !== randomCountry.toLowerCase()) {
-                    score -= 1;
-                    document.getElementById("score").innerHTML = "score: " + score;
-                    // console.log(`countryGuessInput wrong: ${countryGuessInput.toLowerCase()}`)
-                    // console.log(`randomCountry wrong: ${randomCountry.toLowerCase()}`)
-                }
-            }
-
-            
-            //Countdown Timer Function
-            function countdown(minutes) {
-                let seconds = 60;
-                let mins = minutes
-              
-                function tick() {
-                    let counter = document.getElementById("counter");
-                    let currentMinutes = mins-1
-                    seconds--;
-                    //Ternary Operator(?): Assigns a value to a variable based on a condition.
-                    counter.innerHTML = currentMinutes.toString() + ":" + (seconds < 10 ? "0" : "") + seconds.toString() + "s";
-                    if(seconds > 0) {
-                        setTimeout(tick, 1000);
-                    } else if (mins > 1) {
-                            countdown(mins-1);
-                    } else if (seconds <= 0) {
-                      counter.innerHTML = "TIME'S UP!"
-                      document.getElementById("randomCountryButton").disabled = true;
-                      document.getElementById("randomCountryButton").style.cursor = "none";
-                      document.getElementById("randomCountryButton").style.color = "#666666";
-                      document.getElementById("randomCountryButton").style.backgroundColor = "#cccccc";
-                    }
-                }
-                tick();
-              }
-              
-            
