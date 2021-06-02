@@ -5,7 +5,6 @@ const countryNamesArr = [];
 
 //TODO: ITERATE THROUGH "ALL" API, GET COUNTRY NAME, AND PUSH TO NEW ARRAY
 fetch(`https://restcountries.eu/rest/v2/all`).then(function (response) {
-
     //Access THE JSON IN THE RESPONSE
     response.json().then(function (json) {
 
@@ -39,7 +38,6 @@ function randomCountryGen() {
 
     //USES "countryNamesArr" GENERATED FROM API
     randomCountry = countryNamesArr[Math.floor(Math.random() * countryNamesArr.length)];
-
 
     fetch(`https://restcountries.eu/rest/v2/name/${randomCountry}?fullText=true`).then(function (response) {
         // Access the JSON in the response
@@ -79,7 +77,7 @@ function countryGuessFunction() {
     let text;
     countryGuessInput = document.getElementById("countryGuessInput").value;
 
-    if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
+    if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase())) {
         text = `<p> Correct! </p>`;
         document.getElementById("correct-incorrect").style.display = 'block';
         disappearElement();
@@ -105,7 +103,7 @@ function disappearElement() {
 let score = 0;
 
 function scoreKeeper() {
-    if (countryGuessInput.toLowerCase() == randomCountry.toLowerCase()) {
+    if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase())) {
         score += 10;
         document.getElementById("score").innerHTML = "score: " + score;
         randomCountryGen();
