@@ -53,29 +53,49 @@ function randomCountryGen() {
             //console.log(countryArr);
 
             //TODO: ADD HTML WITH JSON DATA
+            //     countryList.innerHTML =
+            //         `<ul class="card">
+            //         <img class = "card-image" src=${countryArr.flag}>
+            //         <li class = "card-name"> Name: ${countryArr.name}</li>
+            //         <li class = "card-capital"> Capital: ${countryArr.capital}</li>
+            //         <li class = "card-region"> Region: ${countryArr.region}</li>
+            //         <li class = "card-language"> Language: ${countryArr.languages}</li>
+            //     <ul>
+            //     <div class=learnMore>
+            //         <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
+            //    </div>`
             countryList.innerHTML =
                 `<ul class="card">
                 <img class = "card-image" src=${countryArr.flag}>
-                <li class = "card-name"> Name: ${countryArr.name}</li>
-                <li class = "card-capital"> Capital: ${countryArr.capital}</li>
-                <li class = "card-region"> Region: ${countryArr.region}</li>
-                <li class = "card-language"> Language: ${countryArr.languages}</li>
-            <ul>
-            <div class=learnMore>
-                <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
-           </div>`
+                <ul>
+                <div class=learnMore>
+                    <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
+                </div>`
         });
         document.getElementById('countryGuessInput').value = '';
         document.getElementById("countryGuessInput").focus();
     });
 }
 
-//try contain instead of equals
+//Contain instead of equals
 //function to remove special characters from input and guess
-
 function countryGuessFunction() {
     let text;
     countryGuessInput = document.getElementById("countryGuessInput").value;
+    randomCountry = randomCountry.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+    randomCountry = randomCountry.replace("ô", "o");
+    randomCountry = randomCountry.replace("Å", "A");
+    randomCountry = randomCountry.replace("ç", "c");
+    randomCountry = randomCountry.replace("(Federated States of)", "");
+    randomCountry = randomCountry.replace("(Islamic Republic of)", "");
+    randomCountry = randomCountry.replace("(Bolivarian Republic of)", "");
+    randomCountry = randomCountry.replace("(Republic of)", "");
+    randomCountry = randomCountry.replace("Republic of", "");
+    randomCountry = randomCountry.replace("(Plurinational State of)", "");
+    randomCountry = randomCountry.replace("(Dutch part)", "");
+    randomCountry = randomCountry.replace("(French part)", "");
+    randomCountry = randomCountry.replace("(Democratic Republic of the)", "o");
+    console.log(randomCountry);
 
     if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase())) {
         text = `<p> Correct! </p>`;
@@ -85,6 +105,13 @@ function countryGuessFunction() {
 
     } else {
         text = `<p> Try Again! </p>`;
+        countryList.innerHTML = 
+            `<ul class="card">
+                    <img class = "card-image" src=${countryArr.flag}>
+                    <li class = "card-capital"> Capital: ${countryArr.capital}</li>
+                    <li class = "card-region"> Region: ${countryArr.region}</li>
+                    <li class = "card-language"> Language: ${countryArr.languages}</li>
+                <ul>`
         document.getElementById("correct-incorrect").style.display = 'block';
         disappearElement();
         document.getElementById("countryGuessInput").focus();
@@ -131,7 +158,7 @@ function countdown(minutes) {
             countdown(mins - 1);
         } else if (seconds <= 0) {
             counter.innerHTML = "TIME'S UP!"
-            document.getElementById("randomCountryButton").disabled = true;
+            // document.getElementById("randomCountryButton").disabled = true;
             document.getElementById("randomCountryButton").style.cursor = "none";
             document.getElementById("randomCountryButton").style.color = "#666666";
             document.getElementById("randomCountryButton").style.backgroundColor = "#cccccc";
