@@ -52,25 +52,25 @@ function randomCountryGen() {
             countryArr['flag'] = json[0].flag;
             //console.log(countryArr);
 
-            //TODO: ADD HTML WITH JSON DATA
-            //     countryList.innerHTML =
-            //         `<ul class="card">
-            //         <img class = "card-image" src=${countryArr.flag}>
-            //         <li class = "card-name"> Name: ${countryArr.name}</li>
-            //         <li class = "card-capital"> Capital: ${countryArr.capital}</li>
-            //         <li class = "card-region"> Region: ${countryArr.region}</li>
-            //         <li class = "card-language"> Language: ${countryArr.languages}</li>
-            //     <ul>
-            //     <div class=learnMore>
-            //         <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
-            //    </div>`
+            // TODO: ADD HTML WITH JSON DATA
             countryList.innerHTML =
                 `<ul class="card">
-                <img class = "card-image" src=${countryArr.flag}>
+                    <img class = "card-image" src=${countryArr.flag}>
+                    <li class = "card-name"> Name: ${countryArr.name}</li>
+                    <li class = "card-capital"> Capital: ${countryArr.capital}</li>
+                    <li class = "card-region"> Region: ${countryArr.region}</li>
+                    <li class = "card-language"> Language: ${countryArr.languages}</li>
                 <ul>
                 <div class=learnMore>
                     <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
-                </div>`
+               </div>`
+            // countryList.innerHTML =
+            //     `<ul class="card">
+            //     <img class = "card-image" src=${countryArr.flag}>
+            //     <ul>
+            //     <div class=learnMore>
+            //         <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
+            //     </div>`
         });
         document.getElementById('countryGuessInput').value = '';
         document.getElementById("countryGuessInput").focus();
@@ -83,18 +83,91 @@ function countryGuessFunction() {
     let text;
     countryGuessInput = document.getElementById("countryGuessInput").value;
     randomCountry = randomCountry.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
-    randomCountry = randomCountry.replace("ô", "o");
-    randomCountry = randomCountry.replace("Å", "A");
-    randomCountry = randomCountry.replace("ç", "c");
-    randomCountry = randomCountry.replace("(Federated States of)", "");
-    randomCountry = randomCountry.replace("(Islamic Republic of)", "");
-    randomCountry = randomCountry.replace("(Bolivarian Republic of)", "");
-    randomCountry = randomCountry.replace("(Republic of)", "");
-    randomCountry = randomCountry.replace("Republic of", "");
-    randomCountry = randomCountry.replace("(Plurinational State of)", "");
-    randomCountry = randomCountry.replace("(Dutch part)", "");
-    randomCountry = randomCountry.replace("(French part)", "");
-    randomCountry = randomCountry.replace("(Democratic Republic of the)", "o");
+
+    if (randomCountry.includes("ô")) {
+        randomCountry = randomCountry.replace("ô", "o");
+
+    } else if (randomCountry.includes("Å")) {
+        randomCountry = randomCountry.replace("Å", "A");
+
+    } else if (randomCountry.includes("ç")) {
+        randomCountry = randomCountry.replace("ç", "c");
+
+    } else if (randomCountry.includes("é")) {
+        randomCountry = randomCountry.replace("é", "e");
+
+    } else if (randomCountry.includes(" Federated States of")) {
+        randomCountry = randomCountry.replace(" Federated States of", "");
+
+    } else if (randomCountry.includes(" Islamic Republic of")) {
+        randomCountry = randomCountry.replace(" Islamic Republic of", "");
+
+    } else if (randomCountry.includes(" Bolivarian Republic of")) {
+        randomCountry = randomCountry.replace(" Bolivarian Republic of", "");
+
+    } else if (randomCountry.includes(" Republic of")) {
+        randomCountry = randomCountry.replace(" Republic of", "");
+
+    } else if (randomCountry.includes(" Plurinational State of")) {
+        randomCountry = randomCountry.replace(" Plurinational State of", "");
+
+    } else if (randomCountry.includes(" Dutch part")) {
+        randomCountry = randomCountry.replace(" Dutch part", "");
+
+    } else if (randomCountry.includes(" French part")) {
+        randomCountry = randomCountry.replace(" French part", "");
+
+    } else if (randomCountry.includes(" Democratic Republic of the")) {
+        randomCountry = randomCountry.replace(" Democratic Republic of the", "");
+
+    } else if (randomCountry.includes(" Democratic Peoples Republic of")) {
+        randomCountry = randomCountry.replace(" Democratic People's Republic of", "");
+
+    } else if (randomCountry.includes("Peoples Democratic Republic")) {
+        randomCountry = randomCountry.replace("Peoples Democratic Republic", "");
+
+    } else if (randomCountry.includes(" State of")) {
+        randomCountry = randomCountry.replace(" State of", "");
+
+    } else if (randomCountry.includes("the former Yugoslav")) {
+        randomCountry = randomCountry.replace("the former Yugoslav", "");
+
+    } else if (randomCountry.includes(" U.S.")) {
+        randomCountry = randomCountry.replace(" U.S.", "");
+
+    } else if (randomCountry.includes(" British")) {
+        randomCountry = randomCountry.replace(" British", "");
+
+    } else if (randomCountry.includes(" Sint Eustatius and Saba")) {
+        randomCountry = randomCountry.replace(" Sint Eustatius and Saba", "");
+
+    } else if (randomCountry.includes(" Malvinas")) {
+        randomCountry = randomCountry.replace(" Malvinas", "");
+    }
+
+    // randomCountry = randomCountry.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+    // randomCountry = randomCountry.replace("ô", "o");
+    // randomCountry = randomCountry.replace("Å", "A");
+    // randomCountry = randomCountry.replace("ç", "c");
+    // randomCountry = randomCountry.replace("é", "e");
+    // randomCountry = randomCountry.replace(" (Federated States of)", "");
+    // randomCountry = randomCountry.replace(" (Islamic Republic of)", "");
+    // randomCountry = randomCountry.replace(" (Bolivarian Republic of)", "");
+    // randomCountry = randomCountry.replace(" (Republic of)", "");
+    // randomCountry = randomCountry.replace(" Republic of", "");
+    // randomCountry = randomCountry.replace(" (Plurinational State of)", "");
+    // randomCountry = randomCountry.replace(" (Dutch part)", "");
+    // randomCountry = randomCountry.replace(" (French part)", "");
+    // randomCountry = randomCountry.replace(" (Democratic Republic of the)", "");
+    // randomCountry = randomCountry.replace(" (Democratic People's Republic of)", "");
+    // randomCountry = randomCountry.replace("People's Democratic Republic", "");
+    // randomCountry = randomCountry.replace(", State of", "");
+    // randomCountry = randomCountry.replace(" (the former Yugoslav Republic of)", "");
+    // randomCountry = randomCountry.replace(" (U.S.)", "");
+    // randomCountry = randomCountry.replace(" (British)", "");
+    // randomCountry = randomCountry.replace(", Sint Eustatius and Saba", "");
+    // randomCountry = randomCountry.replace(" (Malvinas)", "");
+
     console.log(randomCountry);
 
     if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase())) {
@@ -105,7 +178,7 @@ function countryGuessFunction() {
 
     } else {
         text = `<p> Try Again! </p>`;
-        countryList.innerHTML = 
+        countryList.innerHTML =
             `<ul class="card">
                     <img class = "card-image" src=${countryArr.flag}>
                     <li class = "card-capital"> Capital: ${countryArr.capital}</li>

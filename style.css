@@ -1,45 +1,52 @@
 body {
-    background: linear-gradient(to bottom right, #BC3131, #B5324D, #AC3370, #A5338C, #9E34A9);
+    background: linear-gradient(
+      to bottom right,
+      #bc3131,
+      #b5324d,
+      #ac3370,
+      #a5338c,
+      #9e34a9
+    );
     height: 100vh;
     text-align: center;
-    font-family: 'Oxygen', sans-serif;
-    color: rgba(255,255,255,0.8);
+    font-family: "Oxygen", sans-serif;
+    color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     /* height: 100%; */
-}
-
-.pageHeader {
+  }
+  
+  .pageHeader {
     margin-bottom: 10px;
     font-weight: lighter;
     text-align: center;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-}
-
-.flex-score-counter {
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+  }
+  
+  .flex-score-counter {
     display: flex;
     /* justify-content: space-between; */
     justify-content: space-around;
-}
-
-#score{
+  }
+  
+  #score {
     margin: 10px;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-    font-family: 'Orbitron', sans-serif;
-}
-
-#counter{
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+    font-family: "Orbitron", sans-serif;
+  }
+  
+  #counter {
     margin: 10px;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-    font-family: 'Orbitron', sans-serif;
-}
-
-.card{
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+    font-family: "Orbitron", sans-serif;
+  }
+  
+  .card {
     margin: auto;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     padding: 30px;
     list-style: none;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     /* border: 1px solid rgba(255,255,255,0.1); */
     backdrop-filter: blur(30px);
     font-weight: lighter;
@@ -47,143 +54,144 @@ body {
     font-weight: lighter;
     height: 20%;
     width: 60%;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-}
-
-.learnMore{
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+  }
+  
+  .learnMore {
     font-size: 15px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     margin-bottom: -20px;
-}
-
-.card-image{
+  }
+  
+  .card-image {
     width: 35%;
     height: auto;
     border-radius: 10px;
-}
-
-.randomCountry {
+  }
+  
+  .randomCountry {
     font-weight: lighter;
     font-size: 25px;
     font-weight: lighter;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-}
-
-#countryGuessInput{
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+  }
+  
+  #countryGuessInput {
     padding: 24px 32px;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(30px);
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     /* letter-spacing: 2px; */
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-    margin:5px;
-}
-
-#submitButton{
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+    margin: 5px;
+  }
+  
+  #submitButton {
     padding: 24px 32px;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(30px);
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     letter-spacing: 2px;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-    margin:5px;
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+    margin: 5px;
     cursor: pointer;
-}
-
-#clearButton{
+  }
+  
+  #clearButton {
     padding: 24px 32px;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(30px);
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     letter-spacing: 2px;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-    margin:5px;
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+    margin: 5px;
     cursor: pointer;
-}
-
-#randomCountryButton {
+  }
+  
+  #randomCountryButton {
     padding: 24px 32px;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(30px);
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     letter-spacing: 2px;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-    margin:5px;
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+    margin: 5px;
     cursor: pointer;
-}
-
-#restartButton{
+  }
+  
+  #restartButton {
     padding: 24px 32px;
     border-radius: 15px;
-    background-color: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(30px);
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     letter-spacing: 2px;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-    margin:5px;
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+    margin: 5px;
     cursor: pointer;
-}
-
-.flex{
+  }
+  
+  .flex {
     display: flex;
     justify-content: center;
     margin: 10px;
-}
-
-.flex-container{
+  }
+  
+  .flex-container {
     position: fixed;
     bottom: 0px;
     left: 0px;
     margin-left: 10px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-weight: bold;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-}
-
-.flex-container-social{
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+  }
+  
+  .flex-container-social {
     position: fixed;
     bottom: 0px;
     right: 0px;
     padding: 10px;
     margin-right: 10px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1.5rem;
     font-weight: bold;
-    text-shadow: 0 8px 17px rgba(0,0,0,0.8);
-}
-
-#linkedin{
+    text-shadow: 0 8px 17px rgba(0, 0, 0, 0.8);
+  }
+  
+  #linkedin {
     font-size: 2rem;
     margin: 5px;
-    color: #2867B2;
+    color: #2867b2;
     fill: white;
-}
-
-#github{
+  }
+  
+  #github {
     font-size: 2rem;
     margin: 5px;
-    color: #211F1F;
+    color: #211f1f;
     fill: white;
-}
-
-#twitter{
+  }
+  
+  #twitter {
     font-size: 2rem;
     margin: 5px;
-    color:#00acee;
-}
+    color: #00acee;
+  }
+  
