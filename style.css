@@ -41,7 +41,6 @@ body {
   font-family: "Orbitron", sans-serif;
 }
 
-/* fix */
 .card {
   margin: auto;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -160,324 +159,399 @@ input {
 /* change design when width gets larger than: */
 /* 450px - Large Phones */
 @media screen and (min-width: 450px) {
-    .body {
-      color: blue;
-    }
-    .card {
-      height: 10rem;
-    }
+  body {
+    color: blue;
   }
-  
-  /* 568px - Landscape Mobile */
-  @media screen and (min-width: 568px) {
-    body {
-      color: red;
-      padding: 5px;
-    }
-  
-    .pageHeader {
-      margin: 2px;
-      font-size: 1.5rem;
-    }
-  
-    #score {
-      margin-left: 80px;
-    }
-  
-    #counter {
-      margin-right: 80px;
-    }
-  
-    .card {
-      margin: auto;
-      padding: 30px;
-      height: 6rem;
-      width: 40%;
-    }
-  
-    #countryGuessInput {
-      height: 1.35rem;
-    }
-  
-    #submitButton {
-      height: 3.4rem;
-    }
-  
-    #restartButton {
-      height: 3.4rem;
-    }
-  
-    .flex {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      margin: 6px;
-    }
-  
-    .flex-container-sig {
-      font-size: 0.7rem;
-    }
-  
-    .flex-container-social {
-      font-size: 0.8rem;
-    }
+}
+
+/* 568px - Landscape Mobile */
+@media screen and (min-width: 568px) {
+  body {
+    color: red;
+    padding: 5px;
   }
-  
-  /* 745px - Small Tablet */
-  @media screen and (min-width: 745px) {
-    body {
-      color: black;
-    }
-    #randomCountryButton {
-      height: 3.43rem;
-    }
+
+  .pageHeader {
+    margin: 2px;
+    font-size: 1.5rem;
   }
-  
-  /* 768px - Tablet */
-  @media screen and (min-width: 768px) {
-    body {
-      color: green;
-    }
-  
-    .pageHeader {
-      margin: 10px;
-      font-size: 3rem;
-    }
-  
-    #score {
-      font-size: 1rem;
-      margin: 10px;
-    }
-  
-    #counter {
-      font-size: 1rem;
-      margin: 10px;
-    }
-  
-    button,
-    input {
-      padding: 24px 32px;
-      font-size: 0.7rem;
-    }
-  
-    #countryGuessInput {
-      height: 1.5rem;
-    }
-  
-    #randomCountryButton {
-      height: 4.5rem;
-    }
-  
-    #submitButton {
-      height: 4.5rem;
-    }
-  
-    #restartButton {
-      height: 4.5rem;
-    }
-  
-    .flex {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      margin: 10px;
-    }
-  
-    .flex-container-sig {
-      font-size: 1rem;
-    }
-  
-    .flex-container-social {
-      font-size: 1.5rem;
-    }
+
+  #score {
+    margin-left: 80px;
   }
-  
-  /* 1024px - Small Desktop (Laptops) */
-  @media screen and (min-width: 1024px) {
-    body {
-      color: yellow;
-    }
-  
-    .pageHeader {
-      margin-bottom: 10px;
-    }
-  
-    .flex-score-counter {
-      display: flex;
-      justify-content: space-around;
-    }
-  
-    #score {
-      margin: 10px;
-    }
-  
-    #counter {
-      margin: 10px;
-    }
-  
-    .card {
-      height: 20rem;
-      width: 40%;
-    }
-  
-    #countryGuessInput {
-      padding: 24px 32px;
-      font-size: 14px;
-      margin: 5px;
-    }
-  
-    #submitButton {
-      padding: 24px 32px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  
-    #randomCountryButton {
-      padding: 24px 32px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  
-    #restartButton {
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  
-    .flex {
-      display: flex;
-      justify-content: center;
-      margin: 10px;
-    }
-  
-    .flex-container {
-      position: fixed;
-      bottom: 0px;
-      left: 0px;
-      margin-left: 10px;
-    }
-  
-    .flex-container-social {
-      position: fixed;
-      bottom: 0px;
-      right: 0px;
-      padding: 10px;
-      margin-right: 10px;
-      font-size: 1.5rem;
-    }
-  
-    #linkedin {
-      font-size: 2rem;
-      margin: 5px;
-    }
-  
-    #github {
-      font-size: 2rem;
-      margin: 5px;
-    }
-  
-    #twitter {
-      font-size: 2rem;
-      margin: 5px;
-    }
+
+  #counter {
+    margin-right: 80px;
   }
-  
-  /* 1300px - Normal Desktop */
-  @media screen and (min-width: 1300px) {
-    body {
-      color: plum;
-    }
-  
-    .pageHeader {
-      margin-bottom: 10px;
-    }
-  
-    .flex-score-counter {
-      display: flex;
-      justify-content: space-around;
-    }
-  
-    #score {
-      margin: 10px;
-    }
-  
-    #counter {
-      margin: 10px;
-    }
-  
-    .card {
-      height: 20rem;
-      width: 40%;
-    }
-  
-    #countryGuessInput {
-      padding: 24px 32px;
-      font-size: 14px;
-      margin: 5px;
-    }
-  
-    #submitButton {
-      padding: 24px 32px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  
-    #randomCountryButton {
-      padding: 24px 32px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  
-    #restartButton {
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  
-    .flex {
-      display: flex;
-      justify-content: center;
-      margin: 10px;
-    }
-  
-    .flex-container {
-      position: fixed;
-      bottom: 0px;
-      left: 0px;
-      margin-left: 10px;
-    }
-  
-    .flex-container-social {
-      position: fixed;
-      bottom: 0px;
-      right: 0px;
-      padding: 10px;
-      margin-right: 10px;
-      font-size: 1.5rem;
-    }
-  
-    #linkedin {
-      font-size: 2rem;
-      margin: 5px;
-    }
-  
-    #github {
-      font-size: 2rem;
-      margin: 5px;
-    }
-  
-    #twitter {
-      font-size: 2rem;
-      margin: 5px;
-    }
+
+  .card {
+    font-size: 0.8rem;
+    height: 10rem;
+    width: 60%;
   }
+
+  .learnMore {
+    margin-right: -1px;
+    margin-top: -10px;
+  }
+
+  .card-image {
+    width: 50%;
+    height: 6rem;
+  }
+
+  #countryGuessInput {
+    height: 1.35rem;
+  }
+
+  #submitButton {
+    height: 3.4rem;
+  }
+
+  #restartButton {
+    height: 3.4rem;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 6px;
+  }
+
+  .flex-container-sig {
+    font-size: 0.7rem;
+  }
+
+  .flex-container-social {
+    font-size: 0.8rem;
+  }
+}
+
+/* 650px - iPads, tablets */
+@media screen and (min-width: 650px) {
+  body {
+    color: black;
+  }
+
+  .card {
+    font-size: 1rem;
+    height: 16rem;
+    width: 90%;
+  }
+
+  .learnMore {
+    font-size: 0.8rem;
+    margin-right: -4px;
+    margin-top: 8px;
+  }
+
+  .card-image {
+    width: 50%;
+    height: 10rem;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+  }
+
+  #randomCountryButton {
+    height: 3.43rem;
+  }
+
+  .flex-container-sig {
+    bottom: -9px;
+    left: 0px;
+    margin-left: 6px;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+  }
+
+  .flex-container-social {
+    bottom: -1px;
+    right: 0px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    font-size: 1.4rem;
+  }
+}
+
+/* 769px - Small screens, laptops */
+@media screen and (min-width: 769px) {
+  body {
+    color: green;
+  }
+
+  .pageHeader {
+    margin: 10px;
+    font-size: 3rem;
+  }
+
+  #score {
+    font-size: 1rem;
+    margin: 10px;
+  }
+
+  #counter {
+    font-size: 1rem;
+    margin: 10px;
+  }
+
+  .card {
+    height: 20rem;
+  }
+
+  .card-image {
+    width: 50%;
+    height: 14rem;
+  }
+
+  button,
+  input {
+    padding: 24px 32px;
+    font-size: 0.7rem;
+  }
+
+  #countryGuessInput {
+    height: 1.5rem;
+  }
+
+  #randomCountryButton {
+    height: 4.5rem;
+  }
+
+  #submitButton {
+    height: 4.5rem;
+  }
+
+  #restartButton {
+    height: 4.5rem;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 10px;
+  }
+
+  .flex-container-sig {
+    font-size: 1rem;
+  }
+
+  .flex-container-social {
+    font-size: 1.5rem;
+  }
+}
+
+/* 910px -large screens (Laptops) */
+@media screen and (min-width: 910px) {
+  body {
+    color: pink;
+  }
+
+  .card {
+    height: 26rem;
+    font-size: 1.4rem;
+  }
+
+  .card-image {
+    width: 50%;
+    height: 16rem;
+  }
+
+  .learnMore {
+    font-size: 0.8rem;
+    margin-right: -4px;
+    margin-top: 30px;
+  }
+}
+
+/*fix*/
+/*add margin between buttons*/
+/* 1025px - Desktop, extra large screens (Laptops) */
+@media screen and (min-width: 1025px) {
+  body {
+    color: yellow;
+  }
+
+  .card {
+    height: 26rem;
+    font-size: 1.4rem;
+  }
+
+  .card-image {
+    width: 50%;
+    height: 16rem;
+  }
+
+  .learnMore {
+    font-size: 0.8rem;
+    margin-right: -4px;
+    margin-top: 30px;
+  }
+
+  #countryGuessInput {
+    padding: 24px 32px;
+    font-size: 14px;
+    margin: 5px;
+  }
+
+  #submitButton {
+    padding: 24px 32px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  #randomCountryButton {
+    padding: 24px 32px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  #restartButton {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  .flex-container {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin-left: 10px;
+  }
+
+  .flex-container-social {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1.5rem;
+  }
+
+  #linkedin {
+    font-size: 2rem;
+    margin: 5px;
+  }
+
+  #github {
+    font-size: 2rem;
+    margin: 5px;
+  }
+
+  #twitter {
+    font-size: 2rem;
+    margin: 5px;
+  }
+}
+
+/* 1200px - Normal Desktop */
+@media screen and (min-width: 1200px) {
+  body {
+    color: plum;
+  }
+
+  .pageHeader {
+    margin-bottom: 10px;
+  }
+
+  .flex-score-counter {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #score {
+    margin: 10px;
+  }
+
+  #counter {
+    margin: 10px;
+  }
+
+  .card {
+    height: 20rem;
+    width: 40%;
+  }
+
+  #countryGuessInput {
+    padding: 24px 32px;
+    font-size: 14px;
+    margin: 5px;
+  }
+
+  #submitButton {
+    padding: 24px 32px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  #randomCountryButton {
+    padding: 24px 32px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  #restartButton {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  .flex-container {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin-left: 10px;
+  }
+
+  .flex-container-social {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1.5rem;
+  }
+
+  #linkedin {
+    font-size: 2rem;
+    margin: 5px;
+  }
+
+  #github {
+    font-size: 2rem;
+    margin: 5px;
+  }
+
+  #twitter {
+    font-size: 2rem;
+    margin: 5px;
+  }
+}
