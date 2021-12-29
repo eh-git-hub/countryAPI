@@ -39,8 +39,8 @@ function randomCountryGen() {
     //USES "countryNamesArr" GENERATED FROM API
     randomCountry = countryNamesArr[Math.floor(Math.random() * countryNamesArr.length)];
 
-    fetch(`https://restcountries.com/v3.1/name/${randomCountry}?fullText=true`).then(function (response) {
-    //fetch(`https://restcountries.com/v3.1/name/peru`).then(function (response) {
+     fetch(`https://restcountries.com/v3.1/name/${randomCountry}?fullText=true`).then(function (response) {
+    //fetch(`https://restcountries.com/v3.1/name/Mexico`).then(function (response) {
         // Access the JSON in the response
         response.json().then(function (json) {
             //console.log(json);
@@ -54,6 +54,7 @@ function randomCountryGen() {
             //console.log(countryArr);
 
             // TODO: ADD HTML WITH JSON DATA
+            //comment out name when in full game
             countryList.innerHTML =
                 `<ul class="card">
                     <img class = "card-image" src=${countryArr.flags}>
@@ -171,7 +172,7 @@ function countryGuessFunction() {
 
     console.log(randomCountry);
 
-    if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase())) {
+    if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase()) &&  countryGuessInput.toLowerCase() !== "") {
         text = `<p> Correct! </p>`;
         document.getElementById("correct-incorrect").style.display = 'block';
         disappearElement();
@@ -179,12 +180,14 @@ function countryGuessFunction() {
 
     } else {
         text = `<p> Try Again! </p>`;
+        //comment out name when in full game
         countryList.innerHTML =
             `<ul class="card">
-                    <img class = "card-image" src=${countryArr.flag}>
+                    <img class = "card-image" src=${countryArr.flags}>
+                    <li class = "card-name"> Name: ${countryArr.name}</li>
                     <li class = "card-capital"> Capital: ${countryArr.capital}</li>
-                    <li class = "card-region"> Region: ${countryArr.region}</li>
-                    <li class = "card-language"> Language: ${countryArr.languages}</li>
+                    <li class = "card-region"> Region: ${countryArr.subregion}</li>
+                    <li class = "card-language"> Language: ${Object.values(countryArr.languages)}</li>
                 <ul>`
         document.getElementById("correct-incorrect").style.display = 'block';
         disappearElement();
