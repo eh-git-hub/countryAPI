@@ -4,14 +4,14 @@ let scoreHTML = document.getElementById("score");
 const countryNamesArr = [];
 
 //TODO: ITERATE THROUGH "ALL" API, GET COUNTRY NAME, AND PUSH TO NEW ARRAY
-fetch(`https://restcountries.eu/rest/v2/all`).then(function (response) {
+fetch(`https://restcountries.com/v3.1/all`).then(function (response) {
     //Access THE JSON IN THE RESPONSE
     response.json().then(function (json) {
 
         //forEach Loop
         json.forEach(myFunction);
         function myFunction(eachCountry) {
-            let countryNames = eachCountry.name;
+            let countryNames = eachCountry.name.common;
             countryNamesArr.push(countryNames);
         };
         // console.log(countryNamesArr);
@@ -39,27 +39,28 @@ function randomCountryGen() {
     //USES "countryNamesArr" GENERATED FROM API
     randomCountry = countryNamesArr[Math.floor(Math.random() * countryNamesArr.length)];
 
-    fetch(`https://restcountries.eu/rest/v2/name/${randomCountry}?fullText=true`).then(function (response) {
+    fetch(`https://restcountries.com/v3.1/name/${randomCountry}?fullText=true`).then(function (response) {
+    //fetch(`https://restcountries.com/v3.1/name/peru`).then(function (response) {
         // Access the JSON in the response
         response.json().then(function (json) {
             //console.log(json);
 
             countryArr = [];
-            countryArr['name'] = json[0].name;
-            countryArr['capital'] = json[0].capital;
-            countryArr['region'] = json[0].region;
-            countryArr['languages'] = json[0].languages[0].name;
-            countryArr['flag'] = json[0].flag;
+            countryArr['name'] = json[0].name.common;
+            countryArr['capital'] = json[0].capital[0];
+            countryArr['subregion'] = json[0].subregion;
+            countryArr['languages'] = json[0].languages;
+            countryArr['flags'] = json[0].flags.png;
             //console.log(countryArr);
 
             // TODO: ADD HTML WITH JSON DATA
             countryList.innerHTML =
                 `<ul class="card">
-                    <img class = "card-image" src=${countryArr.flag}>
+                    <img class = "card-image" src=${countryArr.flags}>
                     <li class = "card-name"> Name: ${countryArr.name}</li>
                     <li class = "card-capital"> Capital: ${countryArr.capital}</li>
-                    <li class = "card-region"> Region: ${countryArr.region}</li>
-                    <li class = "card-language"> Language: ${countryArr.languages}</li>
+                    <li class = "card-region"> Region: ${countryArr.subregion}</li>
+                    <li class = "card-language"> Language: ${Object.values(countryArr.languages)}</li>
                 <ul>
                 <div class=learnMore>
                     <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
