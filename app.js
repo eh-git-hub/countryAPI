@@ -66,13 +66,6 @@ function randomCountryGen() {
                 <div class=learnMore>
                     <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
                </div>`
-            // countryList.innerHTML =
-            //     `<ul class="card">
-            //     <img class = "card-image" src=${countryArr.flag}>
-            //     <ul>
-            //     <div class=learnMore>
-            //         <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
-            //     </div>`
         });
         document.getElementById('countryGuessInput').value = '';
         document.getElementById("countryGuessInput").focus();
@@ -235,7 +228,7 @@ function countdown(minutes) {
             countdown(mins - 1);
         } else if (seconds <= 0) {
             counter.innerHTML = "TIME'S UP!"
-            // document.getElementById("randomCountryButton").disabled = true;
+            document.getElementById("randomCountryButton").disabled = true;
             document.getElementById("randomCountryButton").style.cursor = "none";
             document.getElementById("randomCountryButton").style.color = "#666666";
             document.getElementById("randomCountryButton").style.backgroundColor = "#cccccc";
