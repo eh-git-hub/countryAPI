@@ -262,6 +262,12 @@ input {
     height: 3.43rem;
   }
 
+  .learnMore {
+    font-size: 0.8rem;
+    margin-right: 4px;
+    margin-top:2px;
+  }
+
   .flex-container-sig {
     bottom: -9px;
     left: 0px;
@@ -381,17 +387,19 @@ input {
   .card {
     height: 26rem;
     font-size: 1.4rem;
+    width: 70%;
   }
 
   .card-image {
     width: 50%;
     height: 16rem;
+    padding: 10px;
   }
 
   .learnMore {
     font-size: 0.8rem;
-    margin-right: -4px;
-    margin-top: 30px;
+    margin-right: 4px;
+    margin-top: 15px;
   }
 
   #countryGuessInput {
@@ -486,7 +494,7 @@ input {
 
   .card {
     height: 26rem;
-    width: 40%;
+    width: 50%;
   }
 
   #countryGuessInput {
@@ -538,6 +546,12 @@ input {
     padding: 10px;
     margin-right: 10px;
     font-size: 1.5rem;
+  }
+
+  .learnMore {
+    font-size: 0.8rem;
+    margin-right: 4px;
+    margin-top: 10px;
   }
 
   #linkedin {
