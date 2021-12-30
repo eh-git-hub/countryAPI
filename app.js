@@ -39,8 +39,8 @@ function randomCountryGen() {
     //USES "countryNamesArr" GENERATED FROM API
     randomCountry = countryNamesArr[Math.floor(Math.random() * countryNamesArr.length)];
 
-     fetch(`https://restcountries.com/v3.1/name/${randomCountry}?fullText=true`).then(function (response) {
-    //fetch(`https://restcountries.com/v3.1/name/Mexico`).then(function (response) {
+    fetch(`https://restcountries.com/v3.1/name/${randomCountry}?fullText=true`).then(function (response) {
+        //fetch(`https://restcountries.com/v3.1/name/Mexico`).then(function (response) {
         // Access the JSON in the response
         response.json().then(function (json) {
             //console.log(json);
@@ -165,13 +165,13 @@ function countryGuessFunction() {
 
     console.log(randomCountry);
 
-    if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase()) &&  countryGuessInput.toLowerCase() !== "") {
+    if (randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase()) && countryGuessInput.toLowerCase() !== "") {
         text = `<p> Correct! </p>`;
         document.getElementById("correct-incorrect").style.display = 'block';
         disappearElement();
         document.getElementById("countryGuessInput").focus();
 
-    } else {
+    } else if (countryGuessInput.toLowerCase() === "" || !randomCountry.toLowerCase().includes(countryGuessInput.toLowerCase())){
         text = `<p> Try Again! </p>`;
         //comment out name when in full game
         countryList.innerHTML =
@@ -181,7 +181,10 @@ function countryGuessFunction() {
                     <li class = "card-capital"> Capital: ${countryArr.capital}</li>
                     <li class = "card-region"> Region: ${countryArr.subregion}</li>
                     <li class = "card-language"> Language: ${Object.values(countryArr.languages)}</li>
-                <ul>`
+                <ul>
+                <div class=learnMore>
+                <a href="https://en.wikipedia.org/wiki/${randomCountry}" target="_blank">learn more</a>
+           </div>`
         document.getElementById("correct-incorrect").style.display = 'block';
         disappearElement();
         document.getElementById("countryGuessInput").focus();
@@ -196,7 +199,7 @@ function disappearElement() {
     }, 1000);
 }
 
-//Score 
+//Scoring needs some work, allows blank submissions
 let score = 0;
 
 function scoreKeeper() {
@@ -204,11 +207,12 @@ function scoreKeeper() {
         score += 10;
         document.getElementById("score").innerHTML = "score: " + score;
         randomCountryGen();
-    } else if (countryGuessInput.toLowerCase() !== randomCountry.toLowerCase()) {
+    } else if (countryGuessInput.toLowerCase() !== randomCountry.toLowerCase() || countryGuessInput.toLowerCase() === "") {
         score -= 1;
         document.getElementById("score").innerHTML = "score: " + score;
     }
 }
+
 
 
 //Countdown Timer Function
@@ -229,7 +233,7 @@ function countdown(minutes) {
         } else if (seconds <= 0) {
             counter.innerHTML = "TIME'S UP!"
             document.getElementById("randomCountryButton").disabled = true;
-            document.getElementById("randomCountryButton").style.cursor = "none";
+            document.getElementById("randomCountryButton").style.cursor = "default";
             document.getElementById("randomCountryButton").style.color = "#666666";
             document.getElementById("randomCountryButton").style.backgroundColor = "#cccccc";
         }

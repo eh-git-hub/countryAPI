@@ -25,12 +25,12 @@
 
     <div id="countryList"></div>
 
-    <div class="flex">
-        <input type="text" id="countryGuessInput" onfocus="this.value=''" value="ENTER YOUR GUESS:">
-        <button type="button" id="submitButton" onclick="countryGuessFunction(), scoreKeeper()">SUBMIT</button>
+    <form class="flex">
+        <input type="text" id="countryGuessInput" onfocus="this.value=''" value="ENTER YOUR GUESS:" required>
+        <button type="submit" id="submitButton" onclick="countryGuessFunction(), scoreKeeper()">SUBMIT</button>
         <button id="randomCountryButton" onclick="randomCountryGen()" type="button">RANDOM COUNTRY</button>
         <button id="restartButton" onclick="location.reload()">RESTART</button>
-    </div>
+    </form>
 
     <div id="correct-incorrect"></div>
 
