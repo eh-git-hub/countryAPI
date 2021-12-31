@@ -44,7 +44,7 @@ This involved:
 ### How to Play:
 
 - First the player has to press the random country to start the game
-- The game will then reset the focus to the input box indicating where the gues should go 
+- The game will then reset the focus to the input box indicating where the guess should go 
 - Then, based on the flag, capital, region, and language the player will input their guess
 - After typing out their guess the player will hit the submit button
 - If the player has guessed correctly, a "correct!" message will show up, the image will change, and your score will increase
