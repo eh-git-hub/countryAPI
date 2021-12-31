@@ -233,7 +233,9 @@ function countdown(minutes) {
         } else if (seconds <= 0) {
             counter.innerHTML = "TIME'S UP!"
             document.getElementById("randomCountryButton").disabled = true;
+            document.getElementById("submitButton").disabled = true;
             document.getElementById("randomCountryButton").style.cursor = "default";
+            document.getElementById("submitButton").style.cursor = "default";
             document.getElementById("randomCountryButton").style.color = "#666666";
             document.getElementById("randomCountryButton").style.backgroundColor = "#cccccc";
         }
