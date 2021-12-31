@@ -48,7 +48,7 @@ This involved:
 - Then, based on the flag, capital, region, and language the player will input their guess
 - After typing out their guess the player will hit the submit button
 - If the player has guessed correctly, a "correct!" message will show up, the image will change, and your score will increase
-- If the player enters a wrong guess, a "try again!" message will show up, your score will be decrease, and the image will remain the same 
+- If the player enters a wrong guess, a "try again!" message will show up, your score will decrease, and the image will remain the same 
 
 ### Technologies Used
 
