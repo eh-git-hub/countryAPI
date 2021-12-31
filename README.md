@@ -63,6 +63,3 @@ This involved:
 **HTML:** Mark-up language for creating web pages
 
 **CSS:** A formatting language for styling web pages
-
-
-https://eh-git-hub.github.io/countryAPI/
