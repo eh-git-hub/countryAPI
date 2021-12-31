@@ -2,7 +2,7 @@
 
 <hr>
 
-//enter gif of application 
+[GIF of webapp in use](assets/guesstheflagGIF.mp4)
 
 ### Table of Contents
 
