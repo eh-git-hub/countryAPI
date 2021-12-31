@@ -29,7 +29,7 @@ This involved:
 1. Pre-planning UI/UX and wire-framing using Adobe XD
 2. Using Trello to keep project organized and on track
 3. Creating user stories to help plan tasks and determine what went into the MVP and following iterations
-4. Accessibility enhancements (Using images, colors, buttons, playability, HTML semanticsm etc)
+4. Accessibility enhancements (Using images, colors, buttons, playability, HTML semantics etc)
 5. Intentionally breaking up the code into smaller functions
 6. Integrating user feedback
 
