@@ -35,11 +35,11 @@ This involved:
 
 ### Wireframe:
 
-![Screenshot of Wireframe]()
+![Screenshot of Wireframe](assets/guesstheflagSC.png)
 
 ### Trello:
 
-![Screenshot of Trello]()
+![Screenshot of Trello](assets/trelloSC.png)
 
 ### How to Play:
 
