@@ -2,7 +2,7 @@
 
 <hr>
 
-![GIF of webapp in use](assets/guesstheflagGIF.mp4)
+![GIF of webapp in use](assets/guesstheflag.gif)
 
 ### Table of Contents
 
