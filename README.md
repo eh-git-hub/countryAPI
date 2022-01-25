@@ -1,4 +1,4 @@
-# Guess The FLag
+# Guess The Flag
 
 <hr>
 
