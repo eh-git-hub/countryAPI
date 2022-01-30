@@ -38,6 +38,7 @@ function randomCountryGen() {
 
     //USES "countryNamesArr" GENERATED FROM API
     randomCountry = countryNamesArr[Math.floor(Math.random() * countryNamesArr.length)];
+    console.log(`this is: ${randomCountry}`);
 
     fetch(`https://restcountries.com/v3.1/name/${randomCountry}?fullText=true`).then(function (response) {
         //fetch(`https://restcountries.com/v3.1/name/Mexico`).then(function (response) {
